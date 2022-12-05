@@ -42,7 +42,8 @@ public class SetupWizardActivity extends BaseSetupWizardActivity {
         if (LOGV) {
             Log.v(TAG, "onCreate savedInstanceState=" + savedInstanceState);
         }
-        if (WizardManagerHelper.isUserSetupComplete(this)) {
+        if (WizardManagerHelper.isUserSetupComplete(this)
+            && !SetupWizardUtils.isManagedProfile(this)) {
             SetupWizardUtils.finishSetupWizard(this);
             finish();
         } else {
